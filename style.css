@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  font-family: "Kumbh Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    hsl(273, 75%, 66%),
+    hsl(240, 73%, 65%)
+  );
+}
+
+main {
+  height: 80vh;
+  width: 900px;
+  max-width: 85%;
+  background-color: white;
+  position: relative;
+  border-radius: 30px;
+
+  padding-bottom: 30px;
+}
+
+.bg {
+  background: url("./images/illustration-woman-online-mobile.svg"),
+    url("./images/bg-pattern-mobile.svg");
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+
+  background-repeat: no-repeat;
+  background-position: center center, right bottom;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.faq {
+  margin-top: 100px;
+  max-height: 80%;
+  overflow: auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  color: hsl(237, 12%, 33%);
+  margin-bottom: 20px;
+}
+
+p {
+  color: hsl(240, 6%, 50%);
+}
+
+.qa:not(:first-of-type) {
+  border-top: 1px solid hsl(240, 5%, 91%);
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+.question {
+  position: relative;
+  cursor: pointer;
+}
+
+.question::after {
+  content: url("./images/icon-arrow-down.svg");
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.answer {
+  margin-top: 10px;
+  opacity: 0;
+  height: 0px;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  transition: visibility 0s, height 0.4s ease-out, opacity 0.4s ease-out;
+}
+.qa.active .question {
+  color: hsl(237, 12%, 33%);
+}
+
+.qa.active .question::after {
+  transform: rotate(180deg);
+}
+
+.qa.active .answer {
+  visibility: visible;
+  height: 80px;
+  opacity: 1;
+}
+
+@media (min-width: 700px) {
+  main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0;
+  }
+  main > * {
+    flex: 1;
+  }
+  .bg {
+    position: static;
+    background: url("./images/illustration-woman-online-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    transform: translate(0);
+    /* width: 400px; */
+  }
+
+  .faq {
+    /* width: 400px; */
+    padding: 0;
+    margin-top: 0;
+  }
+
+  h1 {
+    text-align: left;
+  }
+}
